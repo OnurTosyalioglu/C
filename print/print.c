@@ -1,4 +1,4 @@
-/*  
+/*
  *  Author : Kemal Onur Tosyalioglu
  *  Email  : onurtosyalioglu@gmail.com
  *  Date   : 25.07.2017
@@ -9,27 +9,27 @@
 
 #include "print.h"
 
-void printChar(char ch){
+void print_char(char ch){
     printf("%c",ch);
 }
 
-void printInt(int number){
+void print_int(int number){
     printf("%d",number);
 }
 
-void printFloat(float number){
+void print_float(float number){
     printf("%f",number);
 }
 
-void printDouble(double number){
+void print_double(double number){
     printf("%lf",number);
 }
 /*
  *	param -> total : total digits
  *		  -> prec  : fraction
  *
- */	
-void printFormFloat(float number,int total,int prec){
+ */
+void print_float_formed(float number,int total,int prec){
     printf("%*.*lf",total,prec,number);
 }
 
@@ -37,46 +37,46 @@ void printFormFloat(float number,int total,int prec){
  *	param -> total : total digits
  *		  -> prec  : fraction
  *
- */	
+ */
 
-void printFormDouble(double number,int total,int prec){
+void print_double_formed(double number,int total,int prec){
     printf("%*.*lf",total,prec,number);
 }
 
-/*	
+/*
  *	exponential form of float
  *	param -> total : total digits
  *		  -> prec  : fraction
  *
- */	
+ */
 
-void printExpoFormFloat(float number,int total,int prec){
+void print_float_formed_expo(float number,int total,int prec){
     printf("%*.*e",total,prec,number);
 }
 
-/*	
+/*
  *	exponential form of double
  *	param -> total : total digits
  *		  -> prec  : fraction
  *
- */	
+ */
 
-void printExpoFormDouble(double number,int total,int prec){
+void print_double_formed_expo(double number,int total,int prec){
     printf("%*.*e",total,prec,number);
 }
 
-void printString(char *str){
+void print_string(char *str){
     printf("%s",str);
 }
 
-void printSpace(){
+void print_space(){
     printf(" ");
 }
 
-void printLn(){
+void print_line(){
     printf("\n");
 }
 
-void printTab(){
+void print_tab(){
     printf("\t");
 }
