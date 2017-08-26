@@ -1,17 +1,9 @@
-/*  
- *  Author : Kemal Onur Tosyalioglu
- *  Email  : onurtosyalioglu@gmail.com
- *  Date   : 25.07.2017
- *  Topic  : swap functions prototypes 
- *
- */
-
 #ifndef FILE_H_
 #define FILE_H_
 
-void swapInt(int* x,int* y);
-void swapFloat(float* x,float* y);
-void swapDouble(double* x,double* y);
-void swapChar(char* x,char* y);
+void swap_int(int* x,int* y);
+void swap_float(float* x,float* y);
+void swap_double(double* x,double* y);
+void swap_char(char* x,char* y);
 
 #endif
