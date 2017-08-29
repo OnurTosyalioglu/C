@@ -1,5 +1,5 @@
 #ifndef SCAN_H_
-#define SCAN_H
+#define SCAN_H_
 
 int scan_int();
 double scan_double();
