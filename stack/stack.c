@@ -1,12 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-
-int main(int argc,const char *argv[])
-{
-
-    return 0;
-}
+#include "stack.h"
 
 int node_is_empty(node *head){
     return head == NULL ? 1 : 0;
