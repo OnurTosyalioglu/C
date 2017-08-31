@@ -1,27 +1,12 @@
-/*  
- *  Author : Kemal Onur Tosyalioglu
- *  Email  : onurtosyalioglu@gmail.com
- *  Date   : 25.07.2017
- *  Topic  : search algorithm implementation
- *
- */
-
 #include "search.h"
 
-/*
-    linear search
-    explanation   :
-    complexity    : O(n)
-    return values : -1      = not found
-                    counter = index of found element
-*/
-int linearSearch(int *arr,int size,int value){
+int linear_search(int *arr,int size,int value){
     if(arr == NULL || size < 0){
         return -1;
     }
 
     int counter;
-    
+
     for(counter=0 ; counter<size ; counter++){
         if( arr[counter]==value ){
             return counter;
@@ -29,14 +14,8 @@ int linearSearch(int *arr,int size,int value){
     }
     return -1;
 }
-/*
-    iterative binary search
-    explanation     :
-    complexity      : O(lg(N))
-    return values   : -1  = not found
-                    : mid = index of found element
-*/
-int binarySearch(int *arr,int size,int value){
+
+int binary_search(int *arr,int size,int value){
 
     if(arr == NULL || size < 0){
         return -1;
@@ -61,17 +40,11 @@ int binarySearch(int *arr,int size,int value){
     }
     return -1;
 }
-/*
-    recursive binary search
-    explanation     :
-    complexity      : O(lg(N))
-    return values   : -1  = not found
-                    : mid = index of found element
-*/
-int binarySearchRecursive(int *arr,int lo,int hi,int value){
-    
+
+int binary_search_recursive(int *arr,int lo,int hi,int value){
+
     int mid;
-    
+
     mid = lo + (hi-lo)/2;
 
     if( lo>hi || arr == NULL || size < 0){
@@ -93,14 +66,8 @@ int binarySearchRecursive(int *arr,int lo,int hi,int value){
 
     }
 }
-/*
-    iterative ternary search
-    explanation     :
-    complexity      : O(log3(N))
-    return values   : -1 = not found
-                    : mid(n) = index of found element
-*/
-int ternarySearch(int *arr,int size,int value){
+
+int ternary_search(int *arr,int size,int value){
 
     if(arr == NULL || size < 0){
         return -1;
@@ -134,14 +101,8 @@ int ternarySearch(int *arr,int size,int value){
     }
     return -1;
 }
-/*
-    recursive ternary search
-    explanation     :
-    complexity      : O(log3(N))
-    return values   : -1 = not found
-                    : mid(n) = index of found element
-*/
-int ternarySearchRecursive(int *arr,int lo,int hi,int value){
+
+int ternary_search_recursive(int *arr,int lo,int hi,int value){
 
     int mid1;
     int mid2;
@@ -165,22 +126,8 @@ int ternarySearchRecursive(int *arr,int lo,int hi,int value){
         return ternarySearchRecursive(arr,mid1+1,mid2-1,value);
     }
 }
-/*
-    dependency : binarySearchRecursive !!
 
-    traditional binary search with array of repetetive elements
-
-    index   : 0 1 2 3 4 5 6 7 8 9 10
-    array   : 1 2 3 3 3 4 5 6 6 8 9
-                  |   |
-                  ls  rs
-
-    ls : left side
-    rs : right side
-
-    example : if we search for '3' we get ls & rs indexes [2,4]
- */
-int* binarySearchInterval(int *arr,int size,int number){
+int* binary_search_interval(int *arr,int size,int number){
 
     int *boundaries = (int*)malloc(2* sizeof(int));
 
