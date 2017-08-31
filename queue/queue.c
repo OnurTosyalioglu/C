@@ -1,79 +1,80 @@
-/*  
- *  Author : Kemal Onur Tosyalioglu
- *  Email  : onurtosyalioglu@gmail.com
- *  Date   : 08.08.2017
- *  Topic  : basic queue operation functions
- *
- */
 #include "queue.h"
 
-int isEmpty(data *head){
-	return head == NULL ? 1 : 0;
+int node_is_empty(node *head){
+	return (head == NULL) ? 1 : 0;
 }
 
-data* createNode(){
-	data *temp;
-	temp = (data*)malloc(sizeof(data));
-	return temp;
+void node_create(node **newNode){
+	(*newNode) = (node *)malloc(sizeof(node));
 }
 
-void initDefault(data **temp){
-	(*temp)->pack = 0;
-	(*temp)->next = NULL;
+void node_default(node **newNode){
+	(*newNode)->next = NULL;
+	(*newNode)->data = 0;
 }
 
-void initNode(data **temp,int number){
-	(*temp)->pack = number;
-	(*temp)->next = NULL;
+void node_init(node **newNode,int number){
+	(*newNode)->next = NULL;
+	(*newNode)->data = number;
 }
 
-void enqueue(data **head,int number){
-	data *iter;
-	iter = (*head);
-	if(isEmpty(*head)){
-		(*head) = createNode();
-		initDefault(head);
-		initNode(head,number);
+void queue_print(node *head){
+    while( !node_is_empty(head) ){
+        printf("%d\n", head->data);
+        head = head->next;
+    }
+}
+
+void queue_print_back(node *head){
+	if(!node_is_empty(head)){
+		queue_print_back(head->next);
+        printf("%d\n",head->data);
+	}
+}
+
+int queue_count(node *head){
+	int counter;
+	counter = 0;
+	while(!node_is_empty(head)){
+		head = head->next;
+		counter++;
+	}
+	return counter;
+}
+
+void queue(node **head,int number){
+	if(node_is_empty(*head)){
+		node_create(head);
+		node_init(head,number);
 	}else{
-		while(!isEmpty(iter->next)){
+		node *iter;
+		iter = (*head);
+
+		while(!node_is_empty(iter->next)){
 			iter = iter->next;
 		}
-		iter->next = createNode();
-		initNode(&(iter->next),number);
+
+		node_create(&(iter->next));
+		node_init(&(iter->next),number);
 	}
+
 }
 
-int dequeue(data **head){
-	data *iter;
-
-	if(isEmpty(*head)){
-		return 0;
-	}else{
-		iter = (*head)->next;
-		free(*head);
-		(*head) = iter;
-		return 1;
-	}
+int dequeue(node **head){
+    if( !node_is_empty(*head) ){
+        node *temp;
+        temp = (*head);
+        (*head) = temp->next;
+        free(temp);
+        return 1;
+    }else{
+        return 0;
+    }
 }
 
-int  dequeueAll(data **head){
-	data *iter;
-	
-	if( isEmpty(*head) ){
-		return 0;
-	}else{
-		while( !isEmpty(*head) ){
-			iter = (*head);
-			(*head) = (*head)->next;
-			dequeue(&iter);
-		}
-		return 1;
-	}
-}
-
-void display(data *head){
-	while( !isEmpty(head) ){
-		printf("%d\n",head->pack);
-		head = head->next;
-	}
+void dequeue_all(node **head){
+    while(!node_is_empty(*head)){
+        dequeue(head);
+    }
+    (*head) = NULL;
 }
