@@ -9,20 +9,20 @@
 #ifndef FILE_H_
 #define FILE_H_
 
-int fileExists(char *);
-FILE* fileRead(char *);
-FILE* fileWrite(char *);
-FILE* fileAppend(char *);
-FILE* fileReadPlus(char *);
-FILE* fileWritePlus(char *);
-FILE* fileAppendPlus(char *);
-void writeFileString(FILE *,char *);
-void writeFileChar(FILE *,char );
-void writeFileInt(FILE *,int );
-void writeFileFloat(FILE *,float );
-void writeFileDouble(FILE *,double );
-void writeFileLn(FILE *);
-void writeFileTab(FILE *);
-void writeFileSpace(FILE *);
+int file_exists(char *);
+FILE* file_read(char *);
+FILE* file_write(char *);
+FILE* file_append(char *);
+FILE* file_read_plus(char *);
+FILE* file_write_plus(char *);
+FILE* file_append_plus(char *);
+void write_string(FILE *,char *);
+void write_char(FILE *,char );
+void write_int(FILE *,int );
+void write_float(FILE *,float );
+void write_double(FILE *,double );
+void write_ln(FILE *);
+void write_tab(FILE *);
+void write_space(FILE *);
 
 #endif

@@ -9,7 +9,7 @@
 
 #include "file.h"
 
-int fileExists(char *path){
+int file_exists(char *path){
     FILE *fp;
     fp = fopen(path,"r");
     if(fp == NULL){
@@ -20,7 +20,7 @@ int fileExists(char *path){
     }
 }
 
-FILE* fileRead(char *path){
+FILE* file_read(char *path){
     FILE *fp = fopen(path,"r");
     if( fp == NULL ){
         perror("Error :");
@@ -28,7 +28,7 @@ FILE* fileRead(char *path){
     return fp;
 }
 
-FILE* fileWrite(char *path){
+FILE* file_write(char *path){
     FILE *fp = fopen(path,"w");
     if( fp == NULL ){
         perror("Error :");
@@ -36,7 +36,7 @@ FILE* fileWrite(char *path){
     return fp;
 }
 
-FILE* fileAppend(char *path){
+FILE* file_append(char *path){
     FILE *fp = fopen(path,"a");
     if( fp == NULL ){
         perror("Error :");
@@ -44,7 +44,7 @@ FILE* fileAppend(char *path){
     return fp;
 }
 
-FILE* fileReadPlus(char *path){
+FILE* file_read_plus(char *path){
     FILE *fp = fopen(path,"r+");
     if( fp == NULL ){
         perror("Error :");
@@ -52,7 +52,7 @@ FILE* fileReadPlus(char *path){
     return fp;
 }
 
-FILE* fileWritePlus(char *path){
+FILE* file_write_plus(char *path){
     FILE *fp = fopen(path,"w+");
     if( fp == NULL ){
         perror("Error :");
@@ -60,7 +60,7 @@ FILE* fileWritePlus(char *path){
     return fp;
 }
 
-FILE* fileAppendPlus(char *path){
+FILE* file_append_plus(char *path){
     FILE *fp = fopen(path,"a+");
     if( fp == NULL ){
         perror("Error :");
@@ -68,7 +68,7 @@ FILE* fileAppendPlus(char *path){
     return fp;
 }
 
-void writeFileString(FILE *fp,char *str){
+void write_string(FILE *fp,char *str){
     if( fp == NULL ){
         perror("Error :");
     }else{
@@ -78,7 +78,7 @@ void writeFileString(FILE *fp,char *str){
     }
 }
 
-void writeFileInt(FILE *fp,int i){
+void write_int(FILE *fp,int i){
     if( fp == NULL ){
         perror("Error :");
     }else{
@@ -88,7 +88,7 @@ void writeFileInt(FILE *fp,int i){
     }
 }
 
-void writeFileFloat(FILE *fp,float f){
+void write_float(FILE *fp,float f){
     if( fp == NULL ){
         perror("Error :");
     }else{
@@ -98,7 +98,7 @@ void writeFileFloat(FILE *fp,float f){
     }
 }
 
-void writeFileDouble(FILE *fp,double d){
+void write_double(FILE *fp,double d){
     if( fp == NULL ){
         perror("Error :");
     }else{
@@ -108,7 +108,7 @@ void writeFileDouble(FILE *fp,double d){
     }
 }
 
-void writeFileChar(FILE *fp,char c){
+void write_char(FILE *fp,char c){
     if( fp == NULL ){
         perror("Error :");
     }else{
@@ -118,7 +118,7 @@ void writeFileChar(FILE *fp,char c){
     }
 }
 
-void writeFileLn(FILE *fp){
+void write_ln(FILE *fp){
     if( fp == NULL ){
         perror("Error :");
     }else{
@@ -128,7 +128,7 @@ void writeFileLn(FILE *fp){
     }
 }
 
-void writeFileTab(FILE *fp){
+void write_tab(FILE *fp){
     if( fp == NULL ){
         perror("Error :");
     }else{
@@ -138,7 +138,7 @@ void writeFileTab(FILE *fp){
     }
 }
 
-void writeFileSpace(FILE *fp){
+void write_space(FILE *fp){
     if( fp == NULL ){
         perror("Error :");
     }else{
