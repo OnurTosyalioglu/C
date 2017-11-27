@@ -2,7 +2,7 @@
  *  Author : Kemal Onur Tosyalioglu
  *  Email : onurtosyalioglu@gmail.com
  *  Date : 28.11.2017
- *  Subject : Dynamic array implementation  
+ *  Subject : Dynamic char array implementation  
  */
 
 /**

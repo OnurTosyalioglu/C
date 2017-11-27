@@ -1,3 +1,14 @@
+/**
+ *  Author : Kemal Onur Tosyalioglu
+ *  Email : onurtosyalioglu@gmail.com
+ *  Date : 28.11.2017
+ *  Subject : Dynamic double array implementation  
+ */
+
+/**
+ *   header file
+ */
+
 #include "dyDoubleArray.h"
 
 double* createDoubleArray1D(int x){
