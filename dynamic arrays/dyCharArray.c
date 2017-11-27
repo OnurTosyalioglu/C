@@ -1,29 +1,49 @@
+/**
+ *  Author : Kemal Onur Tosyalioglu
+ *  Email : onurtosyalioglu@gmail.com
+ *  Date : 28.11.2017
+ *  Subject : Dynamic array implementation  
+ */
+
+/**
+ *   header file
+ */
+
 #include "dyCharArray.h"
 
-//	create char type array functions
-//	multi dimentional arrays depends on each other !!
-//	1D <- 2D <- 3D
-//	call by value & returning pointer
-/*
-	Example:
-	
-	char *p1,
-		**p2,
-	   ***p3;
-	   
-	p1 = createCharArray1D(x);		->	p1[x]
-	p2 = createCharArray2D(y,x);	->	p2[y][x]
-	p3 = createCharArray3D(z,y,x);	->	p3[z][y][x]
-	
-*/
+/**
+ *  @description
+ *  	Creating 1D dynamic char array
+ * 
+ *	@param int x 
+ *		Size of first dimension
+ * 
+ *	@return char *ptr
+ *		returns char type dynamicly allocated pointer (ptr)		 
+ */
 
 char* createCharArray1D(int x){
-    char *ptr;
+    char *ptr; 
 
     ptr = (char*)malloc(x * sizeof(char));
 
     return ptr;
 }
+
+/**
+ *  @description
+ *  	Creating 2D dynamic char array
+ * 
+ *	@param int x
+ *		Size of first dimension
+ *
+ *  @param int y
+ *		Size of second dimension
+ * 
+ *	@return char **ptr
+ *		returns char type dynamicly allocated pointer (ptr)		 
+ */
+
 char** createCharArray2D(int y, int x){
     int i;
     char **ptr;
@@ -35,6 +55,24 @@ char** createCharArray2D(int y, int x){
     }
     return ptr;
 }
+
+/**
+ *  @description
+ *  	Creating 3D dynamic char array
+ * 
+ *	@param int x
+ *		Size of first dimension 
+ *
+ *  @param int y
+ *		Size of second dimension
+ * 
+ *	@param int z 
+ *		Size of third dimension
+ *
+ *	@return char ***ptr
+ *		returns char type dynamicly allocated pointer (ptr)		 
+ */
+
 char*** createCharArray3D(int z, int y, int x){
     int i;
     char ***ptr;
@@ -47,17 +85,19 @@ char*** createCharArray3D(int z, int y, int x){
     return ptr;
 }
 
-//	fill char type array functions
-//	multi dimentional arrays depends on each other !!
-//	1D <- 2D <- 3D
-//	call by reference
-/*
-	Example:
-	
-	fillCharArray1D( &p1,x,ch );
-	fillCharArray1D( &p2,y,x,ch );
-	fillCharArray1D( &p3,z,y,x,ch );
-*/	
+/**
+ *  @description
+ * 		Filling 1D char array with intended character
+ * 
+ *	@param char **ptr
+ *		1D char array passing by reference
+ *
+ *  @param int x
+ *		Size of first dimension
+ * 
+ *	@param char ch
+ *		Intended character	 
+ */
 
 void fillCharArray1D(char **ptr,int x,char ch){
 	int i;
@@ -65,12 +105,51 @@ void fillCharArray1D(char **ptr,int x,char ch){
 		(*ptr)[i] = ch;
 	}
 }
+
+/**
+ *  @description
+ * 		Filling 2D char array with intended character
+ * 
+ *	@param char ***ptr
+ *		2D char array passing by reference
+ *
+ *  @param int x
+ *		Size of first dimension
+ * 
+ *	@param int y 
+ *		Size of second dimension
+ *	
+ *	@param char ch
+ *		Intended character	 
+ */
+
 void fillCharArray2D(char ***ptr,int y,int x,char ch){
 	int i;
 	for(i=0 ; i<y ; i++){
 		fillCharArray1D( &(*ptr[i]),x,ch ); 
 	}
 }
+
+/**
+ *  @description
+ * 		Filling 3D char array with intended character
+ * 
+ *	@param char ***ptr
+ *		3D char array passing by reference
+ *
+ *  @param int x
+ *		Size of first dimension
+ * 
+ *	@param int y 
+ *		Size of second dimension
+ *	
+ *	@param int z
+ *		Size of third dimension
+ *
+ *	@param char ch
+ *		Intended character	 
+ */
+
 void fillCharArray3D(char ****ptr,int z,int y,int x,char ch){
 	int i;
 	for(i=0 ; i<z ; i++){
@@ -78,21 +157,29 @@ void fillCharArray3D(char ****ptr,int z,int y,int x,char ch){
 	}
 }
 
-//	destroy char type array functions
-//	multi dimentional arrays depends on each other !!
-//	1D <- 2D <- 3D
-//	call by reference	
-/*
-	Example:
-		
-		destroyCharArray1D( &p1 );
-		destroyCharArray2D(	&p2,y );
-		destroyCharArray3D(	&p3,z,y );
-*/
+/**
+ *  @description
+ *		Destroying 1D char array
+ *	
+ *	@param char **ptr
+ *		1D char array passing by reference
+ */
 
 void destroyCharArray1D(char **ptr){
 	free(*ptr);
 }
+
+/**
+ *  @description
+ *		Destroying 2D char array
+ *	
+ *	@param char **ptr
+ *		2D char array passing by reference
+ *
+ *	@param int y
+ *		Second dimension of array
+ */
+
 void destroyCharArray2D(char ***ptr,int y){
 	int i;
 	for(i=0 ; i<y ; i++){
@@ -100,6 +187,21 @@ void destroyCharArray2D(char ***ptr,int y){
 	}
 	free(*ptr);
 }
+
+/**
+ *  @description
+ *		Destroying 2D char array
+ *	
+ *	@param char **ptr
+ *		2D char array passing by reference
+ *
+ *	@param int y
+ *		Second dimension of array
+ *	
+ *	@param int z
+ *		Third dimension of array
+ */
+
 void destroyCharArray3D(char ****ptr,int z,int y){
 	int i;
 	for(i=0 ; i<z ; i++){
