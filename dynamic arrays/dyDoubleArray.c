@@ -11,6 +11,17 @@
 
 #include "dyDoubleArray.h"
 
+/**
+ *  @description
+ *  	Creating 1D dynamic double array
+ * 
+ *	@param int x 
+ *		Size of first dimension
+ * 
+ *	@return double *ptr
+ *		returns double type dynamicly allocated pointer (ptr)		 
+ */
+
 double* createDoubleArray1D(int x){
     double *ptr;
 
@@ -18,6 +29,20 @@ double* createDoubleArray1D(int x){
 
     return ptr;
 }
+
+/**
+ *  @description
+ *  	Creating 2D dynamic double array
+ * 
+ *	@param int x
+ *		Size of first dimension
+ *
+ *  @param int y
+ *		Size of second dimension
+ * 
+ *	@return double **ptr
+ *		returns double type dynamicly allocated pointer (ptr)		 
+ */
 
 double** createDoubleArray2D(int y, int x){
     int i;
@@ -31,6 +56,23 @@ double** createDoubleArray2D(int y, int x){
     return ptr;
 }
 
+/**
+ *  @description
+ *  	Creating 3D dynamic double array
+ * 
+ *	@param int x
+ *		Size of first dimension 
+ *
+ *  @param int y
+ *		Size of second dimension
+ * 
+ *	@param int z 
+ *		Size of third dimension
+ *
+ *	@return double ***ptr
+ *		returns double type dynamicly allocated pointer (ptr)		 
+ */
+
 double*** createDoubleArray3D(int z, int y, int x){
     int i;
     double ***ptr;
@@ -43,24 +85,38 @@ double*** createDoubleArray3D(int z, int y, int x){
     return ptr;
 }
 
-void fillDoubleArray1D(double **ptr,int x,double ch){
+/**
+ *  @description
+ * 		Filling 1D char array with intended character
+ * 
+ *	@param char **ptr
+ *		1D char array passing by reference
+ *
+ *  @param int x
+ *		Size of first dimension
+ * 
+ *	@param double 
+ *		Intended character	 
+ */
+
+void fillDoubleArray1D(double **ptr,int x,double number){
 	int i;
 	for(i=0 ; i<x ; i++){
-		(*ptr)[i] = ch;
+		(*ptr)[i] = number;
 	}
 }
 
-void fillDoubleArray2D(double ***ptr,int y,int x,double ch){
+void fillDoubleArray2D(double ***ptr,int y,int x,double number){
 	int i;
 	for(i=0 ; i<y ; i++){
-		fillDoubleArray1D( &(*ptr[i]),x,ch ); 
+		fillDoubleArray1D( &(*ptr[i]),x,number ); 
 	}
 }
 
-void fillDoubleArray3D(double ****ptr,int z,int y,int x,double ch){
+void fillDoubleArray3D(double ****ptr,int z,int y,int x,double number){
 	int i;
 	for(i=0 ; i<z ; i++){
-		fillDoubleArray2D( &(*ptr[i]),y,x,ch );
+		fillDoubleArray2D( &(*ptr[i]),y,x,number);
 	}
 }
 
