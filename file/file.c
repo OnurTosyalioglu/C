@@ -1,10 +1,8 @@
-/*  
+/*
  *  Author : Kemal Onur Tosyalioglu
  *  Email  : onurtosyalioglu@gmail.com
  *  Date   : 25.07.2017
- *  Topic  : redifining file functions
- *  to higher access (without modes)
- *
+ *  Topic  : wrapper functions for file access
  */
 
 #include "file.h"

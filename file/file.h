@@ -1,9 +1,8 @@
-/*  
+/*
  *  Author : Kemal Onur Tosyalioglu
  *  Email  : onurtosyalioglu@gmail.com
  *  Date   : 25.07.2017
  *  Topic  : function prototypes of file.c
- *
  */
 
 #ifndef FILE_H_
