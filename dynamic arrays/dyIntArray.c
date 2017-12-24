@@ -1,6 +1,6 @@
-#include "dyIntArray.h"
+#include "dy_int_array.h"
 
-int* createIntArray1D(int x){
+int* create_int_array_1D(int x){
     int *ptr;
 
     ptr = (int*)malloc(x * sizeof(int));
@@ -8,7 +8,7 @@ int* createIntArray1D(int x){
     return ptr;
 }
 
-int** createIntArray2D(int y, int x){
+int** create_int_array_2D(int y, int x){
     int i;
     int **ptr;
 
@@ -20,7 +20,7 @@ int** createIntArray2D(int y, int x){
     return ptr;
 }
 
-int*** createIntArray3D(int z, int y, int x){
+int*** create_int_array_3D(int z, int y, int x){
     int i;
     int ***ptr;
 
@@ -30,34 +30,34 @@ int*** createIntArray3D(int z, int y, int x){
         ptr[i] = createIntArray2D(y,x);
     }
     return ptr;
-}	
+}
 
-void fillIntArray1D(int **ptr,int x,int ch){
+void fill_int_array_1D(int **ptr,int x,int ch){
 	int i;
 	for(i=0 ; i<x ; i++){
 		(*ptr)[i] = ch;
 	}
 }
 
-void fillIntArray2D(int ***ptr,int y,int x,int ch){
+void fill_int_array_2D(int ***ptr,int y,int x,int ch){
 	int i;
 	for(i=0 ; i<y ; i++){
-		fillIntArray1D( &(*ptr[i]),x,ch ); 
+		fillIntArray1D( &(*ptr[i]),x,ch );
 	}
 }
 
-void fillIntArray3D(int ****ptr,int z,int y,int x,int ch){
+void fill_int_array_3D(int ****ptr,int z,int y,int x,int ch){
 	int i;
 	for(i=0 ; i<z ; i++){
 		fillIntArray2D( &(*ptr[i]),y,x,ch );
 	}
 }
 
-void destroyIntArray1D(int **ptr){
+void destroy_int_array_1D(int **ptr){
 	free(*ptr);
 }
 
-void destroyIntArray2D(int ***ptr,int y){
+void destroy_int_array_2D(int ***ptr,int y){
 	int i;
 	for(i=0 ; i<y ; i++){
 		destroyIntArray1D( &(*ptr)[i] );
@@ -65,7 +65,7 @@ void destroyIntArray2D(int ***ptr,int y){
 	free(*ptr);
 }
 
-void destroyIntArray3D(int ****ptr,int z,int y){
+void destroy_int_array_3D(int ****ptr,int z,int y){
 	int i;
 	for(i=0 ; i<z ; i++){
 		destroyIntArray2D( &(*ptr)[i],y );
