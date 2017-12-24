@@ -51,7 +51,7 @@ double** create_double_array_2D(int y, int x){
     ptr = (double**)malloc(y * sizeof(double*));
 
     for(i=0 ; i<x ; i++){
-        ptr[i] = createDoubleArray1D(x);
+        ptr[i] = create_double_array_1D(x);
     }
     return ptr;
 }
@@ -80,7 +80,7 @@ double*** create_double_array_3D(int z, int y, int x){
     ptr = (double***)malloc(z * sizeof(double**));
 
     for(i=0 ; i<x ; i++){
-        ptr[i] = createDoubleArray2D(y,x);
+        ptr[i] = create_double_array_2D(y,x);
     }
     return ptr;
 }
@@ -126,7 +126,7 @@ void fill_double_array_1D(double **ptr,int x,double number){
 void fill_double_array_2D(double ***ptr,int y,int x,double number){
 	int i;
 	for(i=0 ; i<y ; i++){
-		fillDoubleArray1D( &(*ptr[i]),x,number );
+		fill_double_array_1D( &(*ptr[i]),x,number );
 	}
 }
 
@@ -153,7 +153,7 @@ void fill_double_array_2D(double ***ptr,int y,int x,double number){
 void fill_double_array_3D(double ****ptr,int z,int y,int x,double number){
 	int i;
 	for(i=0 ; i<z ; i++){
-		fillDoubleArray2D( &(*ptr[i]),y,x,number);
+		fill_double_array_2D( &(*ptr[i]),y,x,number);
 	}
 }
 
@@ -183,7 +183,7 @@ void destroy_double_array_1D(double **ptr){
 void destroy_double_array_2D(double ***ptr,int y){
 	int i;
 	for(i=0 ; i<y ; i++){
-		destroyDoubleArray1D( &(*ptr)[i] );
+		destroy_double_array_1D( &(*ptr)[i] );
 	}
 	free(*ptr);
 }
@@ -205,6 +205,6 @@ void destroy_double_array_2D(double ***ptr,int y){
 void destroy_double_array_3D(double ****ptr,int z,int y){
 	int i;
 	for(i=0 ; i<z ; i++){
-		destroyDoubleArray2D( &(*ptr)[i],y );
+		destroy_double_array_2D( &(*ptr)[i],y );
 	}
 }

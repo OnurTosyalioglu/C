@@ -26,7 +26,7 @@ float** create_float_array_2D(int y, int x){
     ptr = (float**)malloc(y * sizeof(float*));
 
     for(i=0 ; i<x ; i++){
-        ptr[i] = createFloatArray1D(x);
+        ptr[i] = create_float_array_1D(x);
     }
     return ptr;
 }
@@ -38,7 +38,7 @@ float*** create_float_array_3D(int z, int y, int x){
     ptr = (float***)malloc(z * sizeof(float**));
 
     for(i=0 ; i<x ; i++){
-        ptr[i] = createFloatArray2D(y,x);
+        ptr[i] = create_float_array_2D(y,x);
     }
     return ptr;
 }
@@ -53,14 +53,14 @@ void fill_float_array_1D(float **ptr,int x,float ch){
 void fill_float_array_2D(float ***ptr,int y,int x,float ch){
 	int i;
 	for(i=0 ; i<y ; i++){
-		fillFloatArray1D( &(*ptr[i]),x,ch );
+		fill_float_array_1D( &(*ptr[i]),x,ch );
 	}
 }
 
 void fill_float_array_3D(float ****ptr,int z,int y,int x,float ch){
 	int i;
 	for(i=0 ; i<z ; i++){
-		fillFloatArray2D( &(*ptr[i]),y,x,ch );
+		fill_float_array_2D( &(*ptr[i]),y,x,ch );
 	}
 }
 
@@ -71,7 +71,7 @@ void destroy_float_array_1D(float **ptr){
 void destroy_float_array_2D(float ***ptr,int y){
 	int i;
 	for(i=0 ; i<y ; i++){
-		destroyFloatArray1D( &(*ptr)[i] );
+		destroy_float_array_1D( &(*ptr)[i] );
 	}
 	free(*ptr);
 }
@@ -79,6 +79,6 @@ void destroy_float_array_2D(float ***ptr,int y){
 void destroy_float_array_3D(float ****ptr,int z,int y){
 	int i;
 	for(i=0 ; i<z ; i++){
-		destroyFloatArray2D( &(*ptr)[i],y );
+		destroy_float_array_2D( &(*ptr)[i],y );
 	}
 }
