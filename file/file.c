@@ -1,8 +1,8 @@
 /*
- *  Author : Kemal Onur Tosyalioglu
- *  Email  : onurtosyalioglu@gmail.com
- *  Date   : 25.07.2017
- *  Topic  : wrapper functions for file access
+ *  Author  : Kemal Onur Tosyalioglu
+ *  Email   : onurtosyalioglu@gmail.com
+ *  Date    : 25.07.2017
+ *  Purpose : Wrapper functions for file access
  */
 
 #include "file.h"
