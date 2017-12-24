@@ -9,7 +9,7 @@
  *   @header
  */
 
-#include "dyCharArray.h"
+#include "dy_char_array.h"
 
 /**
  *  @description
@@ -22,7 +22,7 @@
  *		returns char type dynamicly allocated pointer (ptr)
  */
 
-char* createCharArray1D(int x){
+char* create_char_array_1D(int x){
     char *ptr;
 
     ptr = (char*)malloc(x * sizeof(char));
@@ -44,14 +44,14 @@ char* createCharArray1D(int x){
  *		returns char type dynamicly allocated pointer (ptr)
  */
 
-char** createCharArray2D(int y, int x){
+char** create_char_array_2D(int y, int x){
     int i;
     char **ptr;
 
     ptr = (char**)malloc(y * sizeof(char*));
 
     for(i=0 ; i<x ; i++){
-        ptr[i] = createCharArray1D(x);
+        ptr[i] = create_char_array_1D(x);
     }
     return ptr;
 }
@@ -73,14 +73,14 @@ char** createCharArray2D(int y, int x){
  *		returns char type dynamicly allocated pointer (ptr)
  */
 
-char*** createCharArray3D(int z, int y, int x){
+char*** create_char_array_3D(int z, int y, int x){
     int i;
     char ***ptr;
 
     ptr = (char***)malloc(z * sizeof(char**));
 
     for(i=0 ; i<x ; i++){
-        ptr[i] = createCharArray2D(y,x);
+        ptr[i] = create_char_array_2D(y,x);
     }
     return ptr;
 }
@@ -99,7 +99,7 @@ char*** createCharArray3D(int z, int y, int x){
  *		Intended character
  */
 
-void fillCharArray1D(char **ptr,int x,char ch){
+void fill_char_array_1D(char **ptr,int x,char ch){
 	int i;
 	for(i=0 ; i<x ; i++){
 		(*ptr)[i] = ch;
@@ -123,10 +123,10 @@ void fillCharArray1D(char **ptr,int x,char ch){
  *		Intended character
  */
 
-void fillCharArray2D(char ***ptr,int y,int x,char ch){
+void fill_char_array_2D(char ***ptr,int y,int x,char ch){
 	int i;
 	for(i=0 ; i<y ; i++){
-		fillCharArray1D( &(*ptr[i]),x,ch );
+		fill_char_array_1D( &(*ptr[i]),x,ch );
 	}
 }
 
@@ -150,10 +150,10 @@ void fillCharArray2D(char ***ptr,int y,int x,char ch){
  *		Intended character
  */
 
-void fillCharArray3D(char ****ptr,int z,int y,int x,char ch){
+void fill_char_array_3D(char ****ptr,int z,int y,int x,char ch){
 	int i;
 	for(i=0 ; i<z ; i++){
-		fillCharArray2D( &(*ptr[i]),y,x,ch );
+		fill_char_array_2D( &(*ptr[i]),y,x,ch );
 	}
 }
 
@@ -165,7 +165,7 @@ void fillCharArray3D(char ****ptr,int z,int y,int x,char ch){
  *		1D char array passing by reference
  */
 
-void destroyCharArray1D(char **ptr){
+void destroy_char_array_1D(char **ptr){
 	free(*ptr);
 }
 
@@ -180,10 +180,10 @@ void destroyCharArray1D(char **ptr){
  *		Second dimension of array
  */
 
-void destroyCharArray2D(char ***ptr,int y){
+void destroy_char_array_2D(char ***ptr,int y){
 	int i;
 	for(i=0 ; i<y ; i++){
-		destroyCharArray1D( &(*ptr)[i] );
+		destroy_char_array_1D( &(*ptr)[i] );
 	}
 	free(*ptr);
 }
@@ -202,9 +202,9 @@ void destroyCharArray2D(char ***ptr,int y){
  *		Third dimension of array
  */
 
-void destroyCharArray3D(char ****ptr,int z,int y){
+void destroy_char_array_3D(char ****ptr,int z,int y){
 	int i;
 	for(i=0 ; i<z ; i++){
-		destroyCharArray2D( &(*ptr)[i],y );
+		destroy_char_array_2D( &(*ptr)[i],y );
 	}
 }
