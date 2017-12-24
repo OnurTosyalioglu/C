@@ -9,9 +9,9 @@
  *   @header
  */
 
-#include "dyFloatArray.h"
+#include "dy_float_array.h"
 
-float* createFloatArray1D(int x){
+float* create_float_array_1D(int x){
     float *ptr;
 
     ptr = (float*)malloc(x * sizeof(float));
@@ -19,7 +19,7 @@ float* createFloatArray1D(int x){
     return ptr;
 }
 
-float** createFloatArray2D(int y, int x){
+float** create_float_array_2D(int y, int x){
     int i;
     float **ptr;
 
@@ -31,7 +31,7 @@ float** createFloatArray2D(int y, int x){
     return ptr;
 }
 
-float*** createFloatArray3D(int z, int y, int x){
+float*** create_float_array_3D(int z, int y, int x){
     int i;
     float ***ptr;
 
@@ -43,32 +43,32 @@ float*** createFloatArray3D(int z, int y, int x){
     return ptr;
 }
 
-void fillFloatArray1D(float **ptr,int x,float ch){
+void fill_float_array_1D(float **ptr,int x,float ch){
 	int i;
 	for(i=0 ; i<x ; i++){
 		(*ptr)[i] = ch;
 	}
 }
 
-void fillFloatArray2D(float ***ptr,int y,int x,float ch){
+void fill_float_array_2D(float ***ptr,int y,int x,float ch){
 	int i;
 	for(i=0 ; i<y ; i++){
 		fillFloatArray1D( &(*ptr[i]),x,ch );
 	}
 }
 
-void fillFloatArray3D(float ****ptr,int z,int y,int x,float ch){
+void fill_float_array_3D(float ****ptr,int z,int y,int x,float ch){
 	int i;
 	for(i=0 ; i<z ; i++){
 		fillFloatArray2D( &(*ptr[i]),y,x,ch );
 	}
 }
 
-void destroyFloatArray1D(float **ptr){
+void destroy_float_array_1D(float **ptr){
 	free(*ptr);
 }
 
-void destroyFloatArray2D(float ***ptr,int y){
+void destroy_float_array_2D(float ***ptr,int y){
 	int i;
 	for(i=0 ; i<y ; i++){
 		destroyFloatArray1D( &(*ptr)[i] );
@@ -76,7 +76,7 @@ void destroyFloatArray2D(float ***ptr,int y){
 	free(*ptr);
 }
 
-void destroyFloatArray3D(float ****ptr,int z,int y){
+void destroy_float_array_3D(float ****ptr,int z,int y){
 	int i;
 	for(i=0 ; i<z ; i++){
 		destroyFloatArray2D( &(*ptr)[i],y );
