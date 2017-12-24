@@ -1,8 +1,8 @@
 /**
- *  Author : Kemal Onur Tosyalioglu
- *  Email : onurtosyalioglu@gmail.com
- *  Date : 28.11.2017
- *  Subject : Wrapper functions for dynamic array creation
+ *  Author  : Kemal Onur Tosyalioglu
+ *  Email   : onurtosyalioglu@gmail.com
+ *  Date    : 28.11.2017
+ *  Purpose : Wrapper functions for dynamic array creation
  */
 
 /**
