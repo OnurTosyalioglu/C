@@ -1,7 +1,7 @@
 /**
  * Author  : Kemal Onur Tosyalioglu
  * Date    : 24.12.2017
- * Email   : onurtosylioglu@gmail.com
+ * Email   : onurtosyalioglu@gmail.com
  * Purpose : Header file
  */
 

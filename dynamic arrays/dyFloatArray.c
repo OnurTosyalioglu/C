@@ -1,3 +1,14 @@
+/**
+ * Author  : Kemal Onur Tosyalioglu
+ * Date    : 24.12.2017
+ * Email   : onurtosyalioglu@gmail.com
+ * Purpose : Wrapper functions for dynamic array creation
+ */
+
+/**
+ *   @header
+ */
+
 #include "dyFloatArray.h"
 
 float* createFloatArray1D(int x){
@@ -42,7 +53,7 @@ void fillFloatArray1D(float **ptr,int x,float ch){
 void fillFloatArray2D(float ***ptr,int y,int x,float ch){
 	int i;
 	for(i=0 ; i<y ; i++){
-		fillFloatArray1D( &(*ptr[i]),x,ch ); 
+		fillFloatArray1D( &(*ptr[i]),x,ch );
 	}
 }
 

@@ -1,3 +1,10 @@
+/**
+ * Author  : Kemal Onur Tosyalioglu
+ * Date    : 24.12.2017
+ * Email   : onurtosyalioglu@gmail.com
+ * Purpose : Header file
+ */
+
 #ifndef DYCHARARRAY_H_
 #define DYFLOATARRAY_H_
 
